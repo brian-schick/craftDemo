@@ -15,6 +15,7 @@
 		D3DFAA6E2411D5CC0023A566 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DFAA6C2411D5CC0023A566 /* LaunchScreen.storyboard */; };
 		D3DFAA792411D5CC0023A566 /* intuitCraftDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA782411D5CC0023A566 /* intuitCraftDemoTests.swift */; };
 		D3DFAA842411D5CC0023A566 /* intuitCraftDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA832411D5CC0023A566 /* intuitCraftDemoUITests.swift */; };
+		D3DFAA992411DD690023A566 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA982411DD690023A566 /* Feed.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		D3DFAA7F2411D5CC0023A566 /* intuitCraftDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = intuitCraftDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DFAA832411D5CC0023A566 /* intuitCraftDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = intuitCraftDemoUITests.swift; sourceTree = "<group>"; };
 		D3DFAA852411D5CC0023A566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D3DFAA982411DD690023A566 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,13 +101,13 @@
 		D3DFAA602411D5C90023A566 /* intuitCraftDemo */ = {
 			isa = PBXGroup;
 			children = (
-				D3DFAA612411D5C90023A566 /* AppDelegate.swift */,
-				D3DFAA632411D5C90023A566 /* SceneDelegate.swift */,
-				D3DFAA652411D5C90023A566 /* ViewController.swift */,
-				D3DFAA672411D5C90023A566 /* Main.storyboard */,
-				D3DFAA6A2411D5CC0023A566 /* Assets.xcassets */,
-				D3DFAA6C2411D5CC0023A566 /* LaunchScreen.storyboard */,
-				D3DFAA6F2411D5CC0023A566 /* Info.plist */,
+				D3DFAA932411D7290023A566 /* Codable Models */,
+				D3DFAA952411D74D0023A566 /* Views */,
+				D3DFAA922411D71B0023A566 /* Controllers */,
+				D3DFAA972411D77D0023A566 /* Extensions */,
+				D3DFAA962411D7580023A566 /* Networking */,
+				D3DFAA942411D73D0023A566 /* Storyboards */,
+				D3DFAA912411D6F30023A566 /* Core */,
 			);
 			path = intuitCraftDemo;
 			sourceTree = "<group>";
@@ -126,6 +128,63 @@
 				D3DFAA852411D5CC0023A566 /* Info.plist */,
 			);
 			path = intuitCraftDemoUITests;
+			sourceTree = "<group>";
+		};
+		D3DFAA912411D6F30023A566 /* Core */ = {
+			isa = PBXGroup;
+			children = (
+				D3DFAA6F2411D5CC0023A566 /* Info.plist */,
+				D3DFAA6A2411D5CC0023A566 /* Assets.xcassets */,
+				D3DFAA612411D5C90023A566 /* AppDelegate.swift */,
+				D3DFAA632411D5C90023A566 /* SceneDelegate.swift */,
+				D3DFAA6C2411D5CC0023A566 /* LaunchScreen.storyboard */,
+			);
+			name = Core;
+			sourceTree = "<group>";
+		};
+		D3DFAA922411D71B0023A566 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D3DFAA652411D5C90023A566 /* ViewController.swift */,
+			);
+			name = Controllers;
+			sourceTree = "<group>";
+		};
+		D3DFAA932411D7290023A566 /* Codable Models */ = {
+			isa = PBXGroup;
+			children = (
+				D3DFAA982411DD690023A566 /* Feed.swift */,
+			);
+			name = "Codable Models";
+			sourceTree = "<group>";
+		};
+		D3DFAA942411D73D0023A566 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D3DFAA672411D5C90023A566 /* Main.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D3DFAA952411D74D0023A566 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Views;
+			sourceTree = "<group>";
+		};
+		D3DFAA962411D7580023A566 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Networking;
+			sourceTree = "<group>";
+		};
+		D3DFAA972411D77D0023A566 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +319,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3DFAA662411D5C90023A566 /* ViewController.swift in Sources */,
+				D3DFAA992411DD690023A566 /* Feed.swift in Sources */,
 				D3DFAA622411D5C90023A566 /* AppDelegate.swift in Sources */,
 				D3DFAA642411D5C90023A566 /* SceneDelegate.swift in Sources */,
 			);
@@ -444,7 +504,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.brianschick.intuitCraftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -462,7 +522,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.brianschick.intuitCraftDemo;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
