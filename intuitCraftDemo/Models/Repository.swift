@@ -11,16 +11,24 @@ import UIKit
 public struct Repository: Decodable {
 	public let name: String
 	public let description: String
-	public let watchersCount: Int
 	public let language: String
+	public let watchers: Int
 	
 	public var languageColor: UIColor {
 		return UIColor(hexString: languageHexColor) ?? UIColor.githubFallbackColor
 	}
+	
+	// MARK: - Custom Coding Key
+	private enum CodingKeys: String, CodingKey {
+		case name = "name"
+		case description = "description"
+		case language = "language"
+		// custom key
+		case watchers = "watchersCount"
+	}
 }
 
-// MARK: - Getting Colors for Repository Languages
-
+// MARK: - Repository Language Color Extension
 	/*
 	PLEASE NOTE:
 

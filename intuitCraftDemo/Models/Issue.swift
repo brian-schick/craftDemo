@@ -15,14 +15,14 @@ public struct Issue: Decodable {
 		case Closed = "closed"
 	}
 	
+	// MARK: - Public Codable Properties
 	public let title: String
 	public let number: Int
 	public let state: IssueState
 	
-	// MARK: - Private Raw Codable Properties
+	// MARK: - Private Codable Properties
 	private let labels: [Label]
 	private let milestone: Milestone
-	
 	
 	// MARK: - Public Computed Properties
 	public var creator: String {
@@ -34,19 +34,12 @@ public struct Issue: Decodable {
 	}
 }
 
-
-
-
-
 // MARK: - Public Supporting Types
 
 /*
 PLEASE NOTE: As with Issue Label Colors, I'm again exposing only a UIColor publicly,
 rather than the raw hex color provided by GitHub.
-
-
 */
-
 
 public struct Label: Decodable {
 	let name: String
