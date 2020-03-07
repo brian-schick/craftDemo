@@ -10,6 +10,7 @@
 		D349D528241420630034F495 /* IssuesFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349D527241420630034F495 /* IssuesFeed.swift */; };
 		D349D52A241420960034F495 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349D529241420960034F495 /* Issue.swift */; };
 		D349D52E241426140034F495 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349D52D241426140034F495 /* Date+.swift */; };
+		D349D536241438CD0034F495 /* UIColor+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349D535241438CD0034F495 /* UIColor+.swift */; };
 		D3DFAA622411D5C90023A566 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA612411D5C90023A566 /* AppDelegate.swift */; };
 		D3DFAA642411D5C90023A566 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA632411D5C90023A566 /* SceneDelegate.swift */; };
 		D3DFAA662411D5C90023A566 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA652411D5C90023A566 /* ViewController.swift */; };
@@ -43,6 +44,7 @@
 		D349D527241420630034F495 /* IssuesFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesFeed.swift; sourceTree = "<group>"; };
 		D349D529241420960034F495 /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
 		D349D52D241426140034F495 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
+		D349D535241438CD0034F495 /* UIColor+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+.swift"; sourceTree = "<group>"; };
 		D3DFAA5E2411D5C90023A566 /* intuitCraftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intuitCraftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DFAA612411D5C90023A566 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3DFAA632411D5C90023A566 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,6 +107,7 @@
 			isa = PBXGroup;
 			children = (
 				D349D52D241426140034F495 /* Date+.swift */,
+				D349D535241438CD0034F495 /* UIColor+.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -116,7 +119,15 @@
 			path = Networking;
 			sourceTree = "<group>";
 		};
-		D349D52624141FE80034F495 /* Codable Models */ = {
+		D349D52624141FE80034F495 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				D349D52F2414299E0034F495 /* Codable Structs */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D349D52F2414299E0034F495 /* Codable Structs */ = {
 			isa = PBXGroup;
 			children = (
 				D3DFAA982411DD690023A566 /* RepositoriesFeed.swift */,
@@ -124,7 +135,7 @@
 				D349D527241420630034F495 /* IssuesFeed.swift */,
 				D349D529241420960034F495 /* Issue.swift */,
 			);
-			path = "Codable Models";
+			name = "Codable Structs";
 			sourceTree = "<group>";
 		};
 		D3DFAA552411D5C90023A566 = {
@@ -151,7 +162,7 @@
 			isa = PBXGroup;
 			children = (
 				D349D52324141FB20034F495 /* Controllers */,
-				D349D52624141FE80034F495 /* Codable Models */,
+				D349D52624141FE80034F495 /* Models */,
 				D3DFAA942411D73D0023A566 /* Storyboards */,
 				D349D52224141F9C0034F495 /* Views */,
 				D349D52524141FD30034F495 /* Networking */,
@@ -338,6 +349,7 @@
 				D3DFAA622411D5C90023A566 /* AppDelegate.swift in Sources */,
 				D3DFAA642411D5C90023A566 /* SceneDelegate.swift in Sources */,
 				D349D52E241426140034F495 /* Date+.swift in Sources */,
+				D349D536241438CD0034F495 /* UIColor+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
