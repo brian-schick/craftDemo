@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D349D528241420630034F495 /* IssuesFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349D527241420630034F495 /* IssuesFeed.swift */; };
+		D349D52A241420960034F495 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349D529241420960034F495 /* Issue.swift */; };
+		D349D52E241426140034F495 /* Date+.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349D52D241426140034F495 /* Date+.swift */; };
 		D3DFAA622411D5C90023A566 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA612411D5C90023A566 /* AppDelegate.swift */; };
 		D3DFAA642411D5C90023A566 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA632411D5C90023A566 /* SceneDelegate.swift */; };
 		D3DFAA662411D5C90023A566 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA652411D5C90023A566 /* ViewController.swift */; };
@@ -15,7 +18,8 @@
 		D3DFAA6E2411D5CC0023A566 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D3DFAA6C2411D5CC0023A566 /* LaunchScreen.storyboard */; };
 		D3DFAA792411D5CC0023A566 /* intuitCraftDemoTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA782411D5CC0023A566 /* intuitCraftDemoTests.swift */; };
 		D3DFAA842411D5CC0023A566 /* intuitCraftDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA832411D5CC0023A566 /* intuitCraftDemoUITests.swift */; };
-		D3DFAA992411DD690023A566 /* Feed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA982411DD690023A566 /* Feed.swift */; };
+		D3DFAA992411DD690023A566 /* RepositoriesFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA982411DD690023A566 /* RepositoriesFeed.swift */; };
+		D3DFAA9B2412CD220023A566 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA9A2412CD220023A566 /* Repository.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D349D527241420630034F495 /* IssuesFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesFeed.swift; sourceTree = "<group>"; };
+		D349D529241420960034F495 /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
+		D349D52D241426140034F495 /* Date+.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+.swift"; sourceTree = "<group>"; };
 		D3DFAA5E2411D5C90023A566 /* intuitCraftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intuitCraftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DFAA612411D5C90023A566 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3DFAA632411D5C90023A566 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -50,7 +57,8 @@
 		D3DFAA7F2411D5CC0023A566 /* intuitCraftDemoUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = intuitCraftDemoUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DFAA832411D5CC0023A566 /* intuitCraftDemoUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = intuitCraftDemoUITests.swift; sourceTree = "<group>"; };
 		D3DFAA852411D5CC0023A566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D3DFAA982411DD690023A566 /* Feed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Feed.swift; sourceTree = "<group>"; };
+		D3DFAA982411DD690023A566 /* RepositoriesFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesFeed.swift; sourceTree = "<group>"; };
+		D3DFAA9A2412CD220023A566 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +86,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D349D52224141F9C0034F495 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		D349D52324141FB20034F495 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D3DFAA652411D5C90023A566 /* ViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		D349D52424141FCB0034F495 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D349D52D241426140034F495 /* Date+.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		D349D52524141FD30034F495 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		D349D52624141FE80034F495 /* Codable Models */ = {
+			isa = PBXGroup;
+			children = (
+				D3DFAA982411DD690023A566 /* RepositoriesFeed.swift */,
+				D3DFAA9A2412CD220023A566 /* Repository.swift */,
+				D349D527241420630034F495 /* IssuesFeed.swift */,
+				D349D529241420960034F495 /* Issue.swift */,
+			);
+			path = "Codable Models";
+			sourceTree = "<group>";
+		};
 		D3DFAA552411D5C90023A566 = {
 			isa = PBXGroup;
 			children = (
@@ -101,12 +150,12 @@
 		D3DFAA602411D5C90023A566 /* intuitCraftDemo */ = {
 			isa = PBXGroup;
 			children = (
-				D3DFAA932411D7290023A566 /* Codable Models */,
-				D3DFAA952411D74D0023A566 /* Views */,
-				D3DFAA922411D71B0023A566 /* Controllers */,
-				D3DFAA972411D77D0023A566 /* Extensions */,
-				D3DFAA962411D7580023A566 /* Networking */,
+				D349D52324141FB20034F495 /* Controllers */,
+				D349D52624141FE80034F495 /* Codable Models */,
 				D3DFAA942411D73D0023A566 /* Storyboards */,
+				D349D52224141F9C0034F495 /* Views */,
+				D349D52524141FD30034F495 /* Networking */,
+				D349D52424141FCB0034F495 /* Extensions */,
 				D3DFAA912411D6F30023A566 /* Core */,
 			);
 			path = intuitCraftDemo;
@@ -142,49 +191,12 @@
 			name = Core;
 			sourceTree = "<group>";
 		};
-		D3DFAA922411D71B0023A566 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				D3DFAA652411D5C90023A566 /* ViewController.swift */,
-			);
-			name = Controllers;
-			sourceTree = "<group>";
-		};
-		D3DFAA932411D7290023A566 /* Codable Models */ = {
-			isa = PBXGroup;
-			children = (
-				D3DFAA982411DD690023A566 /* Feed.swift */,
-			);
-			name = "Codable Models";
-			sourceTree = "<group>";
-		};
 		D3DFAA942411D73D0023A566 /* Storyboards */ = {
 			isa = PBXGroup;
 			children = (
 				D3DFAA672411D5C90023A566 /* Main.storyboard */,
 			);
 			path = Storyboards;
-			sourceTree = "<group>";
-		};
-		D3DFAA952411D74D0023A566 /* Views */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Views;
-			sourceTree = "<group>";
-		};
-		D3DFAA962411D7580023A566 /* Networking */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Networking;
-			sourceTree = "<group>";
-		};
-		D3DFAA972411D77D0023A566 /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			name = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -319,9 +331,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				D3DFAA662411D5C90023A566 /* ViewController.swift in Sources */,
-				D3DFAA992411DD690023A566 /* Feed.swift in Sources */,
+				D349D52A241420960034F495 /* Issue.swift in Sources */,
+				D349D528241420630034F495 /* IssuesFeed.swift in Sources */,
+				D3DFAA992411DD690023A566 /* RepositoriesFeed.swift in Sources */,
+				D3DFAA9B2412CD220023A566 /* Repository.swift in Sources */,
 				D3DFAA622411D5C90023A566 /* AppDelegate.swift in Sources */,
 				D3DFAA642411D5C90023A566 /* SceneDelegate.swift in Sources */,
+				D349D52E241426140034F495 /* Date+.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
