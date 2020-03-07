@@ -19,7 +19,7 @@ public struct Repository: Decodable {
 	}
 }
 
-// MARK: - Hex Colors for repository languages
+// MARK: - Getting Colors for Repository Languages
 
 	/*
 	PLEASE NOTE:
