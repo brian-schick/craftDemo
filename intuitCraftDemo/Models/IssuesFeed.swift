@@ -11,6 +11,11 @@ import Foundation
 public struct IssuesFeed: Decodable {
 	public let issues: [Issue]
 	
+	/*
+	PLEASE NOTE:
+	As noted in RepositoriesFeed.swift, this initializer was needed to accommodate GitHub's unkeyed JSON.
+	*/
+	
 	public init(from decoder: Decoder) throws {
 		var container = try decoder.unkeyedContainer()
 		var aggregatedIssues = [Issue]()

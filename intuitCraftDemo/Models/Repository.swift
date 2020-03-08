@@ -8,53 +8,69 @@
 
 import UIKit
 
-public struct Repository: Decodable {
+/*
+PLEASE NOTE:
+I've made this a class to enable caching via NSCache. Otherwise, this could be a struct.
+*/
+
+public final class Repository: Decodable {
+	
+	// MARK: - Codable Properties
 	public let name: String
 	public let description: String
-	public let language: String
 	public let watchers: Int
+	private let maybeLanguage: String?
 	
+	
+	// MARK: - Public Computed Properties
+	public var language: String {
+		return maybeLanguage ?? "(Undefined)"
+	}
 	public var languageColor: UIColor {
 		return UIColor(hexString: languageHexColor) ?? UIColor.githubFallbackColor
 	}
 	
-	// MARK: - Custom Coding Key
+	
+	// MARK: - Coding Keys
 	private enum CodingKeys: String, CodingKey {
 		case name = "name"
 		case description = "description"
-		case language = "language"
-		// custom key
+
+		case maybeLanguage = "language"
 		case watchers = "watchersCount"
 	}
 }
 
 // MARK: - Repository Language Color Extension
-	/*
-	PLEASE NOTE:
 
-	I've moved quickly here for demo purposes.
+/*
+PLEASE NOTE:
 
-	I located an exhaustive listing of GitHub language hx colors at https://github.com/IonicaBizau/github-colors/blob/HEAD/colors.md
-	
-	To avoid building up too much for a short demo, I simply created a distinct list of languages currently in use by Intuit
-	and created a calculated languageHexColor property in the extension below, adding an arbitrary medium gray color to handle
-	any unexpected languages we might encounter.
+I've moved quickly here for demo purposes.
 
-	Next, since we'll need to work with hex colors for Issue labels as well, I added a UIColor+.swift extension to ease creation of
-	UIColors directly from hex values.
+After locating a listing of GitHub language hx colors at https://github.com/IonicaBizau/github-colors/blob/HEAD/colors.md,
+I grabbed a distinct list of languages currently in use by Intuit and created a calculated languageHexColor property
+in the extension below, adding handling for any unexpected values.
 
-	Last, I made languageHexColor a private property, adding a public languageColor of type UIColor to the public API.
-	*/
+Next, since we'll also need to work with hex colors for Issue labels as well, I added a UIColor+.swift extension to ease
+creation of UIColors from hex values.
+
+Last, I made languageHexColor a private property and added a public languageColor of type UIColor to the public API.
+*/
 
 extension Repository {
 	private var languageHexColor: String {
 		switch language {
-		case "Go" : return "#375eab"
+		case "C#"         : return "#178600"
+		case "Go"         : return "#375eab"
+		case "Java"       : return "#b07219"
 		case "JavaScript" : return "#f1e05a"
-		case "Objective-C" : return "#438eff"
-		case "R" : return "#198CE7"
-		case "Ruby" : return "#701516"
-		default : return "#666666"
+		case "Objective-C": return "#438eff"
+		case "PHP"        : return "#4F5D95"
+		case "R"          : return "#198CE7"
+		case "Ruby"       : return "#701516"
+		case "Swift"      : return "#ffac45"
+		default           : return "#666666"
 		}
 	}
 }
