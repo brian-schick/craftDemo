@@ -15,11 +15,10 @@ public struct RepositoriesFeed: Decodable {
 	PLEASE NOTE:
 	
 	Since Codable expects JSON properties to be labeled and GitHub's API exposes raw unlabled elements,
-	this initializer was required. Here, I leverage an UnkeyedDecodingContainer to work around the "missing"
-	JSON labels. Interestingly, Codable appeared unable to decode to an array within an unkeyed container.
+	this initializer was required. I leveraged an UnkeyedDecodingContainer to work around the "missing"
+	JSON labels. Interestingly, Codable wouldn't directly decode to an array within an unkeyed container.
 	I'd like to investigate this behavior further, but for this demo I used a simple while let loop to
-	manually aggregate all nested Repositories.
-	
+	manually aggregate all nested repositories.
 	*/
 	
 	public init(from decoder: Decoder) throws {
