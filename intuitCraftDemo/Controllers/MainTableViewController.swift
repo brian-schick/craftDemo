@@ -13,14 +13,28 @@ final class MainTableViewController: UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.tableView.rowHeight = 110
+		self.tableView.rowHeight = 110 // using static cell height for demo purposes
 
 		RepositoriesService.fetch { unsortedRepos in
 			self.setRepositories(unsortedRepos)
 		}
 	}
 	
-// MARK: - TableView Methods
+	// MARK: - Public Methods
+	/*
+	PLEASE NOTE:
+	I've set up the following public method to both quickly separate concerns and make it easy to insert
+	mock data for unit testing.
+	*/
+	
+	public func setRepositories(_ repositories: [Repository], reloadingTableView shouldReload: Bool = true) {
+		self.repos = repositories.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
+		if shouldReload {
+			self.tableView.reloadData()
+		}
+	}
+	
+// MARK: - Private TableView Methods
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return repos.count
 	}
@@ -49,18 +63,20 @@ final class MainTableViewController: UITableViewController {
 		return "Intuit"
 	}
 	
-	// MARK: - Public Methods
-	
-	/*
-	PLEASE NOTE:
-	I've used the following to both quickly separate concerns and to ease use of mock data for unit testing
-	*/
-	
-	public func setRepositories(_ repositories: [Repository], reloadingTableView shouldReload: Bool = true) {
-		self.repos = repositories.sorted(by: { $0.name.lowercased() < $1.name.lowercased() })
-		if shouldReload {
-			self.tableView.reloadData()
-		}
+// MARK: - Segues
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		/*
+		Please Note:
+		For demo purposes, I'm just using simple Apple's default string identifiers. In production, I'd typically either
+		use an enumeration or something like an app-wide set of string constants to avoid common stringly-typed issues.
+		*/
+		guard
+			segue.identifier == "MainToIssue",
+			let issuesVC = segue.destination as? IssuesTableViewController,
+			let selectedRow = tableView.indexPathForSelectedRow?.row
+		else { return }
+		
+		issuesVC.repoName = repos[selectedRow].name
 	}
 }
 

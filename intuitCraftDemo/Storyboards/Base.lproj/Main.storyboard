@@ -68,7 +68,7 @@
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" usesAttributedText="YES" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dIp-Kq-5cX" userLabel="repoLabel">
-                                            <rect key="frame" x="44" y="19" width="350" height="18"/>
+                                            <rect key="frame" x="44" y="18.5" width="350" height="19.5"/>
                                             <attributedString key="attributedText">
                                                 <fragment content="repoName">
                                                     <attributes>
@@ -108,6 +108,7 @@
                                     <outlet property="languageLabel" destination="Pgu-xb-nNe" id="b9K-1L-wNw"/>
                                     <outlet property="repoLabel" destination="dIp-Kq-5cX" id="T3n-tu-s3e"/>
                                     <outlet property="watcherslabel" destination="CHP-Dc-ICV" id="GhF-Xa-skK"/>
+                                    <segue destination="dd8-Dz-MvI" kind="presentation" identifier="MainToIssue" modalPresentationStyle="automatic" id="yfw-7d-wn1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -120,7 +121,35 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="3qV-iS-5II" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="897.10144927536237" y="871.875"/>
+            <point key="canvasLocation" x="917" y="872"/>
+        </scene>
+        <!--IssuesTableViewController-->
+        <scene sceneID="QDn-AQ-0qj">
+            <objects>
+                <tableViewController id="dd8-Dz-MvI" userLabel="IssuesTableViewController" customClass="IssuesTableViewController" customModule="intuitCraftDemo" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="GEa-3V-UiM">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Issue" id="LMG-oI-uK4" customClass="IssuesTableViewCell" customModule="intuitCraftDemo" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="28" width="414" height="43.5"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="LMG-oI-uK4" id="PmZ-id-xDu">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="dd8-Dz-MvI" id="VbI-b9-rZW"/>
+                            <outlet property="delegate" destination="dd8-Dz-MvI" id="sOy-3L-7LC"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="faC-R5-zrZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1883" y="872"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Xw2-aH-q9o">
