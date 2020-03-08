@@ -26,11 +26,11 @@ public struct Issue: Decodable {
 	
 	// MARK: - Public Computed Properties
 	public var creator: String {
-		self.milestone?.creator.login ?? "(Not entered)"
+		self.milestone?.creator.login ?? ""
 	}
 	
 	public var createdString: String {
-		self.milestone?.createdAt.sinceNow ?? "(Not entered)"
+		self.milestone?.createdAt.sinceNow ?? ""
 	}
 }
 

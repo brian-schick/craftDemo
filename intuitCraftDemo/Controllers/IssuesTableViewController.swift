@@ -14,8 +14,9 @@ final class IssuesTableViewController: UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.tableView.rowHeight = 110 // using static cell height for demo purposes
-
+		tableView.rowHeight = 110 // using static cell height for demo purposes
+		title = "Intuit / \(repoName)"
+		
 		IssuesService.fetch(forRepoName: repoName) { unsortedIssues in
 			self.setIssues(unsortedIssues)
 		}
@@ -47,7 +48,7 @@ final class IssuesTableViewController: UITableViewController {
 
 		cell.titleLabel.text = issue.title
 		cell.numberLabel.text = "#\(issue.number)"
-		cell.openedLabel.text = "Opened by \(issue.creator) \(issue.createdString)"
+		cell.openedLabel.text = !issue.creator.isEmpty ? "Opened by \(issue.creator) \(issue.createdString)" : "(Creation info not provided)"
 		if issue.state == .Closed {
 			cell.stateIcon.tintColor = UIColor.red
 		}

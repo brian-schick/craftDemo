@@ -13,7 +13,9 @@ final class MainTableViewController: UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		self.tableView.rowHeight = 110 // using static cell height for demo purposes
+		
+		tableView.rowHeight = 110 // using static cell height for demo purposes
+		title = "Intuit"
 
 		RepositoriesService.fetch { unsortedRepos in
 			self.setRepositories(unsortedRepos)
@@ -57,10 +59,6 @@ final class MainTableViewController: UITableViewController {
 		cell.languageImage.tintColor = repo.languageColor
 		
 		return cell
-	}
-	
-	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return "Intuit"
 	}
 	
 // MARK: - Segues
