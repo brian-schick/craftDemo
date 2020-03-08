@@ -13,7 +13,7 @@ PLEASE NOTE:
 I've made this a class to enable caching via NSCache. Otherwise, this could be a struct.
 */
 
-public final class Repository: Decodable {
+public struct Repository: Decodable {
 	
 	// MARK: - Codable Properties
 	public let name: String

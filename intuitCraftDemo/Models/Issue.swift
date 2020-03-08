@@ -8,12 +8,7 @@
 
 import UIKit
 
-/*
-PLEASE NOTE:
-I've made this a class to enable caching via NSCache. Otherwise, this could be a struct.
-*/
-
-public final class Issue: Decodable {
+public struct Issue: Decodable {
 	
 	public enum IssueState: String, Codable {
 		case Open = "open"
@@ -26,16 +21,16 @@ public final class Issue: Decodable {
 	public let state: IssueState
 	
 	// MARK: - Private Codable Properties
-	private let labels: [Label]
-	private let milestone: Milestone
+	private let labels: [Label]?
+	private let milestone: Milestone?
 	
 	// MARK: - Public Computed Properties
 	public var creator: String {
-		self.milestone.creator.login
+		self.milestone?.creator.login ?? "(Not entered)"
 	}
 	
 	public var createdString: String {
-		self.milestone.createdAt.sinceNow
+		self.milestone?.createdAt.sinceNow ?? "(Not entered)"
 	}
 }
 

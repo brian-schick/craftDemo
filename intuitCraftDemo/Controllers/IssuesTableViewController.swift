@@ -15,7 +15,23 @@ final class IssuesTableViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		print("Repo name: \(repoName)")
-		// get data dynamically
+		IssuesService.fetch(forRepoName: repoName) { unsortedIssues in
+			self.setIssues(unsortedIssues)
+		}
+	}
+	
+	// MARK: - Public Methods
+	
+	/*
+	PLEASE NOTE:
+	I've set up the following public method to both quickly separate concerns and make it easy to insert
+	mock data for unit testing.
+	*/
+	
+	public func setIssues(_ issues: [Issue], reloadingTableView shouldReload: Bool = true) {
+		self.issues = issues.sorted(by: { $0.number > $1.number }) // putting most recent issues at top
+		if shouldReload {
+			self.tableView.reloadData()
+		}
 	}
 }

@@ -13,12 +13,14 @@ public struct IssuesFeed: Decodable {
 	
 	/*
 	PLEASE NOTE:
-	As noted in RepositoriesFeed.swift, this initializer was needed to accommodate GitHub's unkeyed JSON.
+	As noted in RepositoriesFeed.swift, using an unkeyed container was required to accommodate
+	GitHub's label-less top-level JSON properties to Codable.
 	*/
 	
 	public init(from decoder: Decoder) throws {
 		var container = try decoder.unkeyedContainer()
 		var aggregatedIssues = [Issue]()
+		
 		while let id = try? container.decode(Issue.self) {
 			aggregatedIssues.append(id)
 		}
