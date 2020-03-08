@@ -34,7 +34,7 @@ final class MainTableViewController: UITableViewController {
 		}
 	}
 	
-// MARK: - Private TableView Methods
+// MARK: - TableView Methods
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return repos.count
 	}

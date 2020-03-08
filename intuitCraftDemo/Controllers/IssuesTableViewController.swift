@@ -14,7 +14,8 @@ final class IssuesTableViewController: UITableViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+		self.tableView.rowHeight = 110 // using static cell height for demo purposes
+
 		IssuesService.fetch(forRepoName: repoName) { unsortedIssues in
 			self.setIssues(unsortedIssues)
 		}
@@ -24,8 +25,8 @@ final class IssuesTableViewController: UITableViewController {
 	
 	/*
 	PLEASE NOTE:
-	I've set up the following public method to both quickly separate concerns and make it easy to insert
-	mock data for unit testing.
+	As with repos, I've used this method as a (hopefully) demo-appropriate means of addressing
+	separation of concerns and unit testing-friendly setup.
 	*/
 	
 	public func setIssues(_ issues: [Issue], reloadingTableView shouldReload: Bool = true) {
@@ -33,5 +34,28 @@ final class IssuesTableViewController: UITableViewController {
 		if shouldReload {
 			self.tableView.reloadData()
 		}
+	}
+	
+	// MARK: - TableView Methods
+	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+		return issues.count
+	}
+	
+	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		let cell = tableView.dequeueReusableCell(withIdentifier: "Issue", for: indexPath) as! IssuesTableViewCell
+		let issue = issues[indexPath.row]
+
+		cell.titleLabel.text = issue.title
+		cell.numberLabel.text = "#\(issue.number)"
+		cell.openedLabel.text = "Opened by \(issue.creator) \(issue.createdString)"
+		if issue.state == .Closed {
+			cell.stateIcon.tintColor = UIColor.red
+		}
+		
+		return cell
+	}
+	
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return "Intuit/" + repoName
 	}
 }
