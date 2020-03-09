@@ -8,7 +8,7 @@
 
 import UIKit
 
-final public class IssuesTableViewCell: UITableViewCell {
+final public class IssuesCell: UITableViewCell {
 	
 	@IBOutlet weak var stateIcon: UIImageView!
 	@IBOutlet weak var titleLabel: UILabel!

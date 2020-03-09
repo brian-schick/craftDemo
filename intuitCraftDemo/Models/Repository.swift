@@ -19,6 +19,7 @@ public struct Repository: Decodable {
 	public let name: String
 	public let description: String
 	public let watchers: Int
+	public let htmlURL: String
 	private let maybeLanguage: String?
 	
 	
@@ -35,7 +36,8 @@ public struct Repository: Decodable {
 	private enum CodingKeys: String, CodingKey {
 		case name = "name"
 		case description = "description"
-
+		case htmlURL = "htmlUrl"
+		
 		case maybeLanguage = "language"
 		case watchers = "watchersCount"
 	}

@@ -44,7 +44,7 @@ final class MainTableViewController: UITableViewController {
 	}
 
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "Repo", for: indexPath) as! MainTableViewCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: "Repo", for: indexPath) as! RepositoryCell
 		let repo = repos[indexPath.row]
 
 		let attributedText = NSMutableAttributedString(
@@ -82,11 +82,14 @@ final class MainTableViewController: UITableViewController {
 		else { return }
 		
 		
-		let repoName = repos[selectedRow].name
-		openIssuesVC.repoName = repoName
+		let repo = repos[selectedRow]
+		openIssuesVC.repoName = repo.name
+		openIssuesVC.htmlURL = repo.htmlURL
 		
 		closedIssuesVC.tabBarItem = UITabBarItem(title: "Closed", image: UIImage(named: "closedIssues"), tag: 1)
-		closedIssuesVC.repoName = repoName
+		closedIssuesVC.repoName = repo.name
+		closedIssuesVC.htmlURL = repo.htmlURL
+
 		closedIssuesVC.state = .Closed
 		
 		tabBarController.viewControllers?.append(closedIssuesVC)

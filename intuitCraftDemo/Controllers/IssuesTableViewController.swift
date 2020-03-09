@@ -10,6 +10,7 @@ import UIKit
 
 final class IssuesTableViewController: UITableViewController {
 	var repoName = ""
+	var htmlURL = ""
 	var state = IssueState.Open
 	var issues = [Issue]()
 	
@@ -49,7 +50,7 @@ final class IssuesTableViewController: UITableViewController {
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "Issue", for: indexPath) as! IssuesTableViewCell
+		let cell = tableView.dequeueReusableCell(withIdentifier: "Issue", for: indexPath) as! IssuesCell
 		populateCell(cell, forIssue: issues[indexPath.row])
 		return cell
 	}
@@ -60,7 +61,7 @@ final class IssuesTableViewController: UITableViewController {
 	
 	
 	// MARK: - Private Methods
-	private func populateCell(_ cell: IssuesTableViewCell, forIssue issue: Issue) {
+	private func populateCell(_ cell: IssuesCell, forIssue issue: Issue) {
 		cell.titleLabel.text = issue.title
 		cell.numberLabel.text = "#\(issue.number)"
 		cell.openedLabel.text = !issue.creator.isEmpty ? "Opened by \(issue.creator) \(issue.createdString)" : "(Creation info not provided)"

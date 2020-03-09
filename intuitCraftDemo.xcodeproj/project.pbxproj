@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		D302DE962414840B00407CE8 /* MainTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302DE952414840B00407CE8 /* MainTableViewCell.swift */; };
-		D329BE8E241580B700254A0E /* IssuesTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D329BE8D241580B700254A0E /* IssuesTableViewCell.swift */; };
+		D302DE962414840B00407CE8 /* RepositoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D302DE952414840B00407CE8 /* RepositoryCell.swift */; };
+		D329BE8E241580B700254A0E /* IssuesCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D329BE8D241580B700254A0E /* IssuesCell.swift */; };
 		D329BE90241580F700254A0E /* IssuesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D329BE8F241580F700254A0E /* IssuesTableViewController.swift */; };
 		D349D528241420630034F495 /* IssuesFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349D527241420630034F495 /* IssuesFeed.swift */; };
 		D349D52A241420960034F495 /* Issue.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349D529241420960034F495 /* Issue.swift */; };
@@ -17,6 +17,7 @@
 		D349D538241454840034F495 /* RepositoriesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349D537241454840034F495 /* RepositoriesService.swift */; };
 		D349D53C24145A600034F495 /* IssuesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349D53B24145A600034F495 /* IssuesService.swift */; };
 		D349D53F241461260034F495 /* Errors.swift in Sources */ = {isa = PBXBuildFile; fileRef = D349D53E241461260034F495 /* Errors.swift */; };
+		D38EF5882416BB230035037F /* GitHubLinkCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D38EF5872416BB230035037F /* GitHubLinkCell.swift */; };
 		D3DFAA622411D5C90023A566 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA612411D5C90023A566 /* AppDelegate.swift */; };
 		D3DFAA642411D5C90023A566 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA632411D5C90023A566 /* SceneDelegate.swift */; };
 		D3DFAA662411D5C90023A566 /* MainTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA652411D5C90023A566 /* MainTableViewController.swift */; };
@@ -48,8 +49,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		D302DE952414840B00407CE8 /* MainTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTableViewCell.swift; sourceTree = "<group>"; };
-		D329BE8D241580B700254A0E /* IssuesTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesTableViewCell.swift; sourceTree = "<group>"; };
+		D302DE952414840B00407CE8 /* RepositoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoryCell.swift; sourceTree = "<group>"; };
+		D329BE8D241580B700254A0E /* IssuesCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesCell.swift; sourceTree = "<group>"; };
 		D329BE8F241580F700254A0E /* IssuesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesTableViewController.swift; sourceTree = "<group>"; };
 		D349D527241420630034F495 /* IssuesFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesFeed.swift; sourceTree = "<group>"; };
 		D349D529241420960034F495 /* Issue.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Issue.swift; sourceTree = "<group>"; };
@@ -58,6 +59,7 @@
 		D349D537241454840034F495 /* RepositoriesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesService.swift; sourceTree = "<group>"; };
 		D349D53B24145A600034F495 /* IssuesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssuesService.swift; sourceTree = "<group>"; };
 		D349D53E241461260034F495 /* Errors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Errors.swift; sourceTree = "<group>"; };
+		D38EF5872416BB230035037F /* GitHubLinkCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitHubLinkCell.swift; sourceTree = "<group>"; };
 		D3DFAA5E2411D5C90023A566 /* intuitCraftDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = intuitCraftDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D3DFAA612411D5C90023A566 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D3DFAA632411D5C90023A566 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -105,8 +107,9 @@
 		D349D52224141F9C0034F495 /* Views */ = {
 			isa = PBXGroup;
 			children = (
-				D302DE952414840B00407CE8 /* MainTableViewCell.swift */,
-				D329BE8D241580B700254A0E /* IssuesTableViewCell.swift */,
+				D302DE952414840B00407CE8 /* RepositoryCell.swift */,
+				D329BE8D241580B700254A0E /* IssuesCell.swift */,
+				D38EF5872416BB230035037F /* GitHubLinkCell.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -370,8 +373,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D302DE962414840B00407CE8 /* MainTableViewCell.swift in Sources */,
-				D329BE8E241580B700254A0E /* IssuesTableViewCell.swift in Sources */,
+				D302DE962414840B00407CE8 /* RepositoryCell.swift in Sources */,
+				D329BE8E241580B700254A0E /* IssuesCell.swift in Sources */,
+				D38EF5882416BB230035037F /* GitHubLinkCell.swift in Sources */,
 				D3DFAA662411D5C90023A566 /* MainTableViewController.swift in Sources */,
 				D349D52A241420960034F495 /* Issue.swift in Sources */,
 				D349D528241420630034F495 /* IssuesFeed.swift in Sources */,
