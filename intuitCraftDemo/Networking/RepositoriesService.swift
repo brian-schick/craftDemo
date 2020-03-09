@@ -38,6 +38,19 @@ public enum RepositoriesService {
 	}
 	
 	
+	// MARK: - Testable Support Methods
+	static func decode(_ data: Data) throws -> [Repository] {
+		do {
+			let decoder = JSONDecoder()
+			decoder.keyDecodingStrategy = .convertFromSnakeCase
+			let feed = try decoder.decode(RepositoriesFeed.self, from: data)
+			
+			return feed.repos
+		} catch {
+			throw CraftDemoError.repositoryDecodeFailure
+		}
+	}
+	
 	// MARK: - Private Support Methods
 	private static func retrievedData(for closureElements: TaskClosureElements) throws -> Data {
 		guard
@@ -47,17 +60,5 @@ public enum RepositoriesService {
 				throw CraftDemoError.repositoryFetchFailure
 		}
 		return data
-	}
-	
-	private static func decode(_ data: Data) throws -> [Repository] {
-		do {
-			let decoder = JSONDecoder()
-			decoder.keyDecodingStrategy = .convertFromSnakeCase
-			let feed = try decoder.decode(RepositoriesFeed.self, from: data)
-
-			return feed.repos
-		} catch {
-			throw CraftDemoError.repositoryDecodeFailure
-		}
 	}
 }
