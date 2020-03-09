@@ -14,10 +14,9 @@ final class MainTableViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		title = "Intuit"
 		tableView.rowHeight = UITableView.automaticDimension
 		tableView.estimatedRowHeight = 110
-
-		title = "Intuit"
 
 		RepositoriesService.fetch { unsortedRepos in
 			self.setRepositories(unsortedRepos)
@@ -25,6 +24,7 @@ final class MainTableViewController: UITableViewController {
 	}
 	
 	// MARK: - Public Methods
+	
 	/*
 	PLEASE NOTE:
 	I've set up the following public method to both quickly separate concerns and make it easy to insert
@@ -65,6 +65,7 @@ final class MainTableViewController: UITableViewController {
 	
 // MARK: - Segues
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		
 		/*
 		Please Note:
 		For demo purposes, I'm just using simple Apple's default string identifiers. In production, I'd typically either

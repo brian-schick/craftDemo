@@ -8,6 +8,4 @@
 
 import UIKit
 
-final public class GitHubLinkCell: UITableViewCell {
-	
-}
+final public class GitHubLinkCell: UITableViewCell { }
