@@ -16,6 +16,8 @@ final class MainTableViewController: UITableViewController {
 		
 		tableView.rowHeight = 110 // using static cell height for demo purposes
 		title = "Intuit"
+		
+		
 
 		RepositoriesService.fetch { unsortedRepos in
 			self.setRepositories(unsortedRepos)
@@ -68,13 +70,26 @@ final class MainTableViewController: UITableViewController {
 		For demo purposes, I'm just using simple Apple's default string identifiers. In production, I'd typically either
 		use an enumeration or something like an app-wide set of string constants to avoid common stringly-typed issues.
 		*/
+		
+		let storyboard = UIStoryboard(name: "Main", bundle: nil)
+			
 		guard
 			segue.identifier == "MainToIssue",
-			let issuesVC = segue.destination as? IssuesTableViewController,
+			let tabBarController = segue.destination as? UITabBarController,
+			let openIssuesVC = tabBarController.viewControllers?.first as? IssuesTableViewController,
+			let closedIssuesVC = storyboard.instantiateViewController(identifier: "IssuesVC") as? IssuesTableViewController,
 			let selectedRow = tableView.indexPathForSelectedRow?.row
 		else { return }
 		
-		issuesVC.repoName = repos[selectedRow].name
+		
+		let repoName = repos[selectedRow].name
+		openIssuesVC.repoName = repoName
+		
+		closedIssuesVC.tabBarItem = UITabBarItem(title: "Closed", image: UIImage(named: "closedIssues"), tag: 1)
+		closedIssuesVC.repoName = repoName
+		closedIssuesVC.state = .Closed
+		
+		tabBarController.viewControllers?.append(closedIssuesVC)
 	}
 }
 

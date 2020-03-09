@@ -27,6 +27,7 @@
 		D3DFAA842411D5CC0023A566 /* intuitCraftDemoUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA832411D5CC0023A566 /* intuitCraftDemoUITests.swift */; };
 		D3DFAA992411DD690023A566 /* RepositoriesFeed.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA982411DD690023A566 /* RepositoriesFeed.swift */; };
 		D3DFAA9B2412CD220023A566 /* Repository.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3DFAA9A2412CD220023A566 /* Repository.swift */; };
+		D3F671002415C7F20018CDBB /* IssueState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D3F670FF2415C7F20018CDBB /* IssueState.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -73,6 +74,7 @@
 		D3DFAA852411D5CC0023A566 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D3DFAA982411DD690023A566 /* RepositoriesFeed.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RepositoriesFeed.swift; sourceTree = "<group>"; };
 		D3DFAA9A2412CD220023A566 /* Repository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Repository.swift; sourceTree = "<group>"; };
+		D3F670FF2415C7F20018CDBB /* IssueState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IssueState.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -178,6 +180,7 @@
 		D3DFAA602411D5C90023A566 /* intuitCraftDemo */ = {
 			isa = PBXGroup;
 			children = (
+				D3F670FE2415C7E70018CDBB /* Enums */,
 				D349D53D2414611C0034F495 /* Errors */,
 				D349D52624141FE80034F495 /* Models */,
 				D349D52324141FB20034F495 /* Controllers */,
@@ -215,7 +218,6 @@
 				D3DFAA6A2411D5CC0023A566 /* Assets.xcassets */,
 				D3DFAA612411D5C90023A566 /* AppDelegate.swift */,
 				D3DFAA632411D5C90023A566 /* SceneDelegate.swift */,
-				D3DFAA6C2411D5CC0023A566 /* LaunchScreen.storyboard */,
 			);
 			name = Core;
 			sourceTree = "<group>";
@@ -224,8 +226,17 @@
 			isa = PBXGroup;
 			children = (
 				D3DFAA672411D5C90023A566 /* Main.storyboard */,
+				D3DFAA6C2411D5CC0023A566 /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		D3F670FE2415C7E70018CDBB /* Enums */ = {
+			isa = PBXGroup;
+			children = (
+				D3F670FF2415C7F20018CDBB /* IssueState.swift */,
+			);
+			path = Enums;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -364,6 +375,7 @@
 				D3DFAA662411D5C90023A566 /* MainTableViewController.swift in Sources */,
 				D349D52A241420960034F495 /* Issue.swift in Sources */,
 				D349D528241420630034F495 /* IssuesFeed.swift in Sources */,
+				D3F671002415C7F20018CDBB /* IssueState.swift in Sources */,
 				D3DFAA992411DD690023A566 /* RepositoriesFeed.swift in Sources */,
 				D349D53F241461260034F495 /* Errors.swift in Sources */,
 				D329BE90241580F700254A0E /* IssuesTableViewController.swift in Sources */,

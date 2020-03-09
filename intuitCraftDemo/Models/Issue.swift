@@ -10,11 +10,6 @@ import UIKit
 
 public struct Issue: Decodable {
 	
-	public enum IssueState: String, Codable {
-		case Open = "open"
-		case Closed = "closed"
-	}
-	
 	// MARK: - Public Codable Properties
 	public let title: String
 	public let number: Int

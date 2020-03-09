@@ -109,7 +109,7 @@
                                     <outlet property="languageLabel" destination="Pgu-xb-nNe" id="b9K-1L-wNw"/>
                                     <outlet property="repoLabel" destination="dIp-Kq-5cX" id="T3n-tu-s3e"/>
                                     <outlet property="watcherslabel" destination="CHP-Dc-ICV" id="GhF-Xa-skK"/>
-                                    <segue destination="dd8-Dz-MvI" kind="presentation" identifier="MainToIssue" modalPresentationStyle="automatic" id="yfw-7d-wn1"/>
+                                    <segue destination="y5Z-iJ-Pkr" kind="presentation" identifier="MainToIssue" modalPresentationStyle="automatic" id="yfw-7d-wn1"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -127,7 +127,7 @@
         <!--IssuesTableViewController-->
         <scene sceneID="QDn-AQ-0qj">
             <objects>
-                <tableViewController id="dd8-Dz-MvI" userLabel="IssuesTableViewController" customClass="IssuesTableViewController" customModule="intuitCraftDemo" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="IssuesVC" id="dd8-Dz-MvI" userLabel="IssuesTableViewController" customClass="IssuesTableViewController" customModule="intuitCraftDemo" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="40" sectionFooterHeight="28" id="GEa-3V-UiM">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -219,10 +219,12 @@
                             <outlet property="delegate" destination="dd8-Dz-MvI" id="sOy-3L-7LC"/>
                         </connections>
                     </tableView>
+                    <tabBarItem key="tabBarItem" title="Open" image="exclamationmark.circle" catalog="system" id="S9h-5L-3K4"/>
+                    <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="faC-R5-zrZ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1882.608695652174" y="871.875"/>
+            <point key="canvasLocation" x="2792.753623188406" y="871.875"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Xw2-aH-q9o">
@@ -241,6 +243,23 @@
                 </navigationController>
             </objects>
             <point key="canvasLocation" x="-13.043478260869566" y="871.875"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="SfY-oi-gFI">
+            <objects>
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="y5Z-iJ-Pkr" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="7O8-YL-nc0">
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="dd8-Dz-MvI" kind="relationship" relationship="viewControllers" id="UfW-Gx-A6x"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ur9-jW-2I7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1882.608695652174" y="871.875"/>
         </scene>
     </scenes>
     <resources>

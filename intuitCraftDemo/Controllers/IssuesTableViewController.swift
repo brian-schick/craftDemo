@@ -10,12 +10,13 @@ import UIKit
 
 final class IssuesTableViewController: UITableViewController {
 	var repoName = ""
+	var state = IssueState.Open
 	var issues = [Issue]()
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
 		tableView.rowHeight = 110 // using static cell height for demo purposes
-		title = "Intuit / \(repoName)"
 		
 		IssuesService.fetch(forRepoName: repoName) { unsortedIssues in
 			self.setIssues(unsortedIssues)
@@ -31,7 +32,9 @@ final class IssuesTableViewController: UITableViewController {
 	*/
 	
 	public func setIssues(_ issues: [Issue], reloadingTableView shouldReload: Bool = true) {
-		self.issues = issues.sorted(by: { $0.number > $1.number }) // putting most recent issues at top
+		self.issues = issues
+			.filter { $0.state == self.state }
+			.sorted(by: { $0.number > $1.number }) // putting most recent issues at top
 		if shouldReload {
 			self.tableView.reloadData()
 		}
@@ -50,7 +53,10 @@ final class IssuesTableViewController: UITableViewController {
 		cell.numberLabel.text = "#\(issue.number)"
 		cell.openedLabel.text = !issue.creator.isEmpty ? "Opened by \(issue.creator) \(issue.createdString)" : "(Creation info not provided)"
 		if issue.state == .Closed {
-			cell.stateIcon.tintColor = UIColor.red
+			cell.titleLabel.textColor = .gray
+			cell.numberLabel.textColor = .lightGray
+			cell.openedLabel.textColor = .lightGray
+			cell.stateIcon.tintColor = .lightGray
 		}
 		
 		return cell
