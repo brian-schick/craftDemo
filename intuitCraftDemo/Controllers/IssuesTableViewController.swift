@@ -10,7 +10,7 @@ import UIKit
 
 final class IssuesTableViewController: UITableViewController {
 	var repoName = ""
-	var htmlURL = ""
+	var htmlURLString = ""
 	var state = IssueState.Open
 	var issues = [Issue]()
 	
@@ -24,6 +24,18 @@ final class IssuesTableViewController: UITableViewController {
 			self.setIssues(unsortedIssues)
 		}
 	}
+	
+	
+	// MARK: - IB Actions
+	@IBAction func gitHubButtonTapped(_ sender: UIButton) {
+		guard
+			let url = URL(string: htmlURLString),
+			UIApplication.shared.canOpenURL(url)
+		else { return }
+		
+		UIApplication.shared.open(url)
+	}
+	
 	
 	
 	// MARK: - Public Methods
@@ -46,12 +58,18 @@ final class IssuesTableViewController: UITableViewController {
 	
 	// MARK: - TableView Methods
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		return issues.count
+		return issues.count + 1
 	}
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-		let cell = tableView.dequeueReusableCell(withIdentifier: "Issue", for: indexPath) as! IssuesCell
-		populateCell(cell, forIssue: issues[indexPath.row])
+		
+		if indexPath.row < issues.count {
+			let cell = tableView.dequeueReusableCell(withIdentifier: "Issue", for: indexPath) as! IssuesCell
+			populateIssuesCell(cell, forIssue: issues[indexPath.row])
+			return cell
+		}
+		
+		let cell = tableView.dequeueReusableCell(withIdentifier: "GitHub", for: indexPath) as! GitHubLinkCell
 		return cell
 	}
 	
@@ -61,7 +79,7 @@ final class IssuesTableViewController: UITableViewController {
 	
 	
 	// MARK: - Private Methods
-	private func populateCell(_ cell: IssuesCell, forIssue issue: Issue) {
+	private func populateIssuesCell(_ cell: IssuesCell, forIssue issue: Issue) {
 		cell.titleLabel.text = issue.title
 		cell.numberLabel.text = "#\(issue.number)"
 		cell.openedLabel.text = !issue.creator.isEmpty ? "Opened by \(issue.creator) \(issue.createdString)" : "(Creation info not provided)"

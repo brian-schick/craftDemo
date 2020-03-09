@@ -23,3 +23,5 @@ I'll keep this short and sweet. Since Intuit has kindly sped up standard process
 15. Add labels to Horizontal Stack View programmatically, with background color, rounded corners.
 16. Set main table view cells to dynamic height, updating constraints. Note issues in both simulator and on device with issue cell horizontal stack view. Force clear preexisting stack view contents partially resolves, but rendering issues persist when cells are redrawn.
 17. Resolve the rendering issues by replacing UIStackView with static UILabel template objects, adjusting code to match. This likely wouldn't be a production-worthy solution, but fully resolves the issues experienced for present purposes.
+18. I missed the GitHub "desktop" affordance in the Issues table initially, so I had to quickly backtrack, find the JSON property for the link, add this to the Codable model and add a matching property in the Issues VC.
+19. Set up second prototype cell for the GitHub link. Create GitHub octicon assets, wire up IBAction for button, add autolayout constraints and test.

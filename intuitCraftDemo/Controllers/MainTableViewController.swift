@@ -84,11 +84,11 @@ final class MainTableViewController: UITableViewController {
 		
 		let repo = repos[selectedRow]
 		openIssuesVC.repoName = repo.name
-		openIssuesVC.htmlURL = repo.htmlURL
+		openIssuesVC.htmlURLString = repo.htmlURL
 		
 		closedIssuesVC.tabBarItem = UITabBarItem(title: "Closed", image: UIImage(named: "closedIssues"), tag: 1)
 		closedIssuesVC.repoName = repo.name
-		closedIssuesVC.htmlURL = repo.htmlURL
+		closedIssuesVC.htmlURLString = repo.htmlURL
 
 		closedIssuesVC.state = .Closed
 		
