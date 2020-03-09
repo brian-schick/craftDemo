@@ -14,9 +14,9 @@ public struct Issue: Decodable {
 	public let title: String
 	public let number: Int
 	public let state: IssueState
+	public let labels: [Label]?
 	
 	// MARK: - Private Codable Properties
-	private let labels: [Label]?
 	private let milestone: Milestone?
 	
 	// MARK: - Public Computed Properties

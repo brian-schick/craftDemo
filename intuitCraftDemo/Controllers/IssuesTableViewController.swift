@@ -59,10 +59,32 @@ final class IssuesTableViewController: UITableViewController {
 			cell.stateIcon.tintColor = .lightGray
 		}
 		
+		if let labels = issue.labels {
+			
+			for label in labels {
+				let uiLabel = UILabel()
+				uiLabel.text = " \(label.name) "
+				uiLabel.layer.backgroundColor = label.color.cgColor
+				uiLabel.layer.cornerRadius = 2
+				
+				var grayscale: CGFloat = 0
+				if label.color.getWhite(&grayscale, alpha: nil) {
+					if grayscale < 0.5 {
+						uiLabel.textColor = .white
+					}
+				}
+				
+				uiLabel.font = UIFont.preferredFont(forTextStyle: .caption2)
+				uiLabel.adjustsFontForContentSizeCategory = true
+				uiLabel.setContentHuggingPriority(UILayoutPriority(1000), for: .horizontal)
+				cell.labelsStack.insertArrangedSubview(uiLabel, at: 0)
+			}
+		}
+		
 		return cell
 	}
 	
 	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return "Intuit/" + repoName
+		return "Intuit / " + repoName
 	}
 }
