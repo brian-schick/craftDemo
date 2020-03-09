@@ -14,10 +14,10 @@ final class MainTableViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		tableView.rowHeight = 110 // using static cell height for demo purposes
+		tableView.rowHeight = UITableView.automaticDimension
+		tableView.estimatedRowHeight = 110
+
 		title = "Intuit"
-		
-		
 
 		RepositoriesService.fetch { unsortedRepos in
 			self.setRepositories(unsortedRepos)
@@ -46,7 +46,7 @@ final class MainTableViewController: UITableViewController {
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Repo", for: indexPath) as! MainTableViewCell
 		let repo = repos[indexPath.row]
-		
+
 		let attributedText = NSMutableAttributedString(
 			string: "intuit/",
 			attributes: [NSAttributedString.Key.font:UIFont.systemFont(ofSize: 14, weight: .light)])
@@ -59,7 +59,7 @@ final class MainTableViewController: UITableViewController {
 		cell.watcherslabel.text = "\(repo.watchers)"
 		cell.languageLabel.text = repo.language
 		cell.languageImage.tintColor = repo.languageColor
-		
+
 		return cell
 	}
 	

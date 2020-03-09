@@ -17,11 +17,12 @@ final class IssuesTableViewController: UITableViewController {
 		super.viewDidLoad()
 		
 		tableView.rowHeight = 110 // using static cell height for demo purposes
-		
+
 		IssuesService.fetch(forRepoName: repoName) { unsortedIssues in
 			self.setIssues(unsortedIssues)
 		}
 	}
+	
 	
 	// MARK: - Public Methods
 	
@@ -40,6 +41,7 @@ final class IssuesTableViewController: UITableViewController {
 		}
 	}
 	
+	
 	// MARK: - TableView Methods
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		return issues.count
@@ -47,8 +49,17 @@ final class IssuesTableViewController: UITableViewController {
 	
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		let cell = tableView.dequeueReusableCell(withIdentifier: "Issue", for: indexPath) as! IssuesTableViewCell
-		let issue = issues[indexPath.row]
-
+		populateCell(cell, forIssue: issues[indexPath.row])
+		return cell
+	}
+	
+	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+		return "Intuit / " + repoName
+	}
+	
+	
+	// MARK: - Private Methods
+	private func populateCell(_ cell: IssuesTableViewCell, forIssue issue: Issue) {
 		cell.titleLabel.text = issue.title
 		cell.numberLabel.text = "#\(issue.number)"
 		cell.openedLabel.text = !issue.creator.isEmpty ? "Opened by \(issue.creator) \(issue.createdString)" : "(Creation info not provided)"
@@ -59,8 +70,12 @@ final class IssuesTableViewController: UITableViewController {
 			cell.stateIcon.tintColor = .lightGray
 		}
 		
+		while cell.labelsStack.arrangedSubviews.count > 0 {
+			let view = cell.labelsStack.arrangedSubviews[cell.labelsStack.arrangedSubviews.count - 1]
+			cell.labelsStack.removeArrangedSubview(view)
+		}
+		
 		if let labels = issue.labels {
-			
 			for label in labels {
 				let uiLabel = UILabel()
 				uiLabel.text = " \(label.name) "
@@ -69,7 +84,7 @@ final class IssuesTableViewController: UITableViewController {
 				
 				var grayscale: CGFloat = 0
 				if label.color.getWhite(&grayscale, alpha: nil) {
-					if grayscale < 0.5 {
+					if grayscale < 0.6 {
 						uiLabel.textColor = .white
 					}
 				}
@@ -77,14 +92,15 @@ final class IssuesTableViewController: UITableViewController {
 				uiLabel.font = UIFont.preferredFont(forTextStyle: .caption2)
 				uiLabel.adjustsFontForContentSizeCategory = true
 				uiLabel.setContentHuggingPriority(UILayoutPriority(1000), for: .horizontal)
-				cell.labelsStack.insertArrangedSubview(uiLabel, at: 0)
+				cell.labelsStack.addArrangedSubview(uiLabel)
 			}
+			
+			let spacer = UILabel()
+			spacer.backgroundColor = .clear
+			spacer.text = "  "
+			spacer.setContentHuggingPriority(UILayoutPriority(0), for: .horizontal)
+			spacer.setContentCompressionResistancePriority(UILayoutPriority(1000), for: .horizontal)
+			cell.labelsStack.addArrangedSubview(spacer)
 		}
-		
-		return cell
-	}
-	
-	override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-		return "Intuit / " + repoName
 	}
 }
